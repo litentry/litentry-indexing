@@ -1,13 +1,17 @@
 # litentry-indexing
 Litentry substrate-based indexing service
 
-## How to use deploy status
+## How to use deploy scripts
     cd deploy
     ./deploy.sh
 
-It should automatically build the docker image if necessary, run docker-compose, start the server and check API status.
+It should automatically:
+* build the docker image if not present
+* run docker-compose
+* start the server
+* check API status.
 
-If you see such output, it means the API server is now (locally) reachable:
+If you see such output in the ned, it means the API server is now (locally) reachable:
 
     ------------------------------------
     Checking kusama status...:

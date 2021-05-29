@@ -6,6 +6,7 @@ services:
       - shared_db:/data/db
     ports:
       - "27017:27017"
+    restart: always
 
   ksm-scanner:
     image: indexing_base:0.1
@@ -15,6 +16,7 @@ services:
     depends_on:
       - db
     command: sh run_scanner.sh kusama
+    restart: always
 
   api-server:
     image: indexing_base:0.1
@@ -26,5 +28,7 @@ services:
     depends_on:
       - db
     command: sh run_api_server.sh
+    restart: always
+
 volumes:
   shared_db:

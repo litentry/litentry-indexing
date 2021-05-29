@@ -2,8 +2,8 @@
 Litentry substrate-based indexing service
 
 ## How to use deploy status
-cd deploy
-./deploy.sh
+    cd deploy
+    ./deploy.sh
 
 It should automatically build the docker image if necessary, run docker-compose, start the server and check API status.
 

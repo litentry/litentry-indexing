@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  db:
+    image: mongo:latest
+    volumes:
+      - shared_db:/data/db
+    ports:
+      - "27017:27017"
+
+  ksm-scanner:
+    image: indexing_base:0.1
+    volumes:
+      - shared_db:/data/db
+      - ${PWD}/run_scanner.sh:/usr/src/app/run_scanner.sh
+    depends_on:
+      - db
+    command: sh run_scanner.sh kusama
+
+  api-server:
+    image: indexing_base:0.1
+    volumes:
+      - shared_db:/data/db
+      - ${PWD}/run_api_server.sh:/usr/src/app/run_api_server.sh
+    ports:
+      - "3213:3213"
+    depends_on:
+      - db
+    command: sh run_api_server.sh
+volumes:
+  shared_db:

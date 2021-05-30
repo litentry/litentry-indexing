@@ -11,7 +11,7 @@ It should automatically:
 * start the server
 * check API status.
 
-If you see such output in the ned, it means the API server is now (locally) reachable:
+If you see such output in the end, it means the API server is now (locally) reachable:
 
     ------------------------------------
     Checking kusama status...:

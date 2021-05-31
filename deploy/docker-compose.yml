@@ -18,6 +18,16 @@ services:
     command: sh run_scanner.sh kusama
     restart: always
 
+  dot-scanner:
+    image: indexing_base:0.1
+    volumes:
+      - shared_db:/data/db
+      - ${PWD}/run_scanner.sh:/usr/src/app/run_scanner.sh
+    depends_on:
+      - db
+    command: sh run_scanner.sh polkadot
+    restart: always
+
   api-server:
     image: indexing_base:0.1
     volumes:

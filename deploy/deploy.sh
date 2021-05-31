@@ -28,3 +28,7 @@ echo "Checking kusama status...:"
 curl -s http://localhost:3213/kusama/status
 echo
 echo "------------------------------------"
+echo "Checking polkadot status...:"
+curl -s http://localhost:3213/polkadot/status
+echo
+echo "------------------------------------"

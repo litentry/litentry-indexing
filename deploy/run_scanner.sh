@@ -26,9 +26,20 @@ esac
 
 # start scanner
 cd dotreasury/packages/scan
-cp .env.example .env
-sed -i 's/HEIGHTS=1/HEIGHTS=/g;s/localhost/db/' .env
+echo "" > .env
+
 cat << EOF >> .env
+KSM_WS_ENDPOINT=wss://kusama-rpc.polkadot.io
+DOT_WS_ENDPOINT=wss://rpc.polkadot.io
+
+MONGO_URL=mongodb://db:27017
+MONGO_DB_KSM_NAME=dotreasury-ksm
+MONGO_DB_DOT_NAME=dotreasury-dot
+MONGO_DB_PRICE_NAME=price
+
+KSM_USE_KNOWN_HEIGHTS=
+DOT_USE_KNOWN_HEIGHTS=
 CHAIN=$1
+
 EOF
 node src/index.js

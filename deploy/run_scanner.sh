@@ -1,5 +1,5 @@
 #!/bin/sh
-  
+
 [ ! -d dotreasury ] && exit 1
 
 case "$1" in
@@ -30,6 +30,5 @@ cp .env.example .env
 sed -i 's/HEIGHTS=1/HEIGHTS=/g;s/localhost/db/' .env
 cat << EOF >> .env
 CHAIN=$1
-NODE_ENV=production
 EOF
 node src/index.js

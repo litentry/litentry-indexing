@@ -1,5 +1,5 @@
 #!/bin/sh
-  
+
 [ ! -d dotreasury ] && exit 1
 
 ##############################################
@@ -22,7 +22,7 @@
 # start API-server
 cd dotreasury/packages/server
 cp .env.sample .env  # TODO: the content might need to be adjusted
-echo "NODE_ENV=production" >> .env
+# echo "NODE_ENV=production" >> .env
 cp config/config.example.js config/config.prod.js
 sed -i 's/dot-treasury/dotreasury/g;s/localhost/db/' config/config.prod.js
 node src/index.js
